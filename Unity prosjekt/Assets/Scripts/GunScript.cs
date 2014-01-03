@@ -5,12 +5,13 @@ public class GunScript : MonoBehaviour
 {
 
     public Transform muzzleObject;
-    public Beam beamObject;
+    public Beam FreezeBeam;
+    public Beam HeatBeam;
 
 	// Use this for initialization
 	void Start ()
 	{
-        beamObject.enabled = false;
+        FreezeBeam.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -30,11 +31,34 @@ public class GunScript : MonoBehaviour
 	                hit.transform.GetComponent<TemperatureHandler>();
 	            }
 	        }
-            beamObject.enabled = true;
+            FreezeBeam.Render(start, end);
+            FreezeBeam.SetEnabled(true);
 	    }
 	    else
 	    {
-            beamObject.enabled = false;
+            FreezeBeam.SetEnabled(false);
 	    }
+
+        if (Input.GetButton("Fire2") || Input.GetAxis("Fire2") >= 0.5f)
+        {
+            Ray ray = new Ray(muzzleObject.position, muzzleObject.forward);
+            Vector3 start = ray.origin;
+            Vector3 end = ray.GetPoint(100);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                end = hit.point;
+                if (hit.transform.tag == "interacable")
+                {
+                    hit.transform.GetComponent<TemperatureHandler>();
+                }
+            }
+            HeatBeam.Render(start, end);
+            HeatBeam.SetEnabled(true);
+        }
+        else
+        {
+            HeatBeam.SetEnabled(false);
+        }
 	}
 }
