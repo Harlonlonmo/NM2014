@@ -16,6 +16,9 @@ public class UnderwaterScript : MonoBehaviour
     private Material defaultSkybox = RenderSettings.skybox;
     private Material noSkybox;
 
+    public Color UnderWaterColor = new Color(0, 0.4f, 0.7f, 0.6f);
+    public float UnderWaterFogDensity = 0.04f;
+
     void Start()
     {
         //Set the background color
@@ -27,8 +30,8 @@ public class UnderwaterScript : MonoBehaviour
         if (transform.position.y < underwaterLevel.position.y)
         {
             RenderSettings.fog = true;
-            RenderSettings.fogColor = new Color(0, 0.4f, 0.7f, 0.6f);
-            RenderSettings.fogDensity = 0.04f;
+            RenderSettings.fogColor = UnderWaterColor;
+            RenderSettings.fogDensity = UnderWaterFogDensity;
             RenderSettings.skybox = noSkybox;
         }
         else

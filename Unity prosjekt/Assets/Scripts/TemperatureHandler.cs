@@ -24,20 +24,15 @@ public class TemperatureHandler : MonoBehaviour
 
     public temperatureRange[] temperatureRanges;
 
-	void OnCollisionEnter(Collision col)
-    {
-
-	}
-
     public void ChangeTemperature(float target, float intensity)
     {
-        temperature += Math.Sign(target - temperature) * intensity;
+        temperature += Math.Sign(target - temperature) * intensity * Time.deltaTime;
 
         temperature = Math.Min(maxTemperature, Math.Max(minTemperature, temperature));
 
         foreach (temperatureRange t in temperatureRanges)
         {
-            if (temperature >= t.min && temperature < t.max)
+            if (temperature >= t.min && temperature <= t.max)
             {
                 if (!t.Active)
                 {

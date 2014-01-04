@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
   m_Layer: 0
@@ -299,6 +300,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400034}
+  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: MeltEfects
   m_TagString: Untagged
@@ -314,6 +316,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400036}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: DripEfects
   m_TagString: Untagged
@@ -630,7 +633,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 16.8369465, y: 27.8395615, z: 5.93202734}
+  m_LocalPosition: {x: 16.8369465, y: 30.1604786, z: 5.93202686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -643,7 +646,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 18.248333, y: 23.887888, z: 5.81992817}
+  m_LocalPosition: {x: 18.2477684, y: 27.4980736, z: 5.98308086}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -678,7 +681,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 13.5867996, y: 28.8775845, z: 5.25947571}
+  m_LocalPosition: {x: 13.5867996, y: 30.8776684, z: 5.25947523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400020}
@@ -735,7 +738,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 18.2704792, y: 24.5044327, z: 11.1165648}
+  m_LocalPosition: {x: 18.2704792, y: 28.5855923, z: 11.1165638}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400022}
@@ -748,7 +751,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 15.9967308, y: 22.1783791, z: 7.36128902}
+  m_LocalPosition: {x: 15.9967308, y: 25.3952675, z: 7.5663538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400032}
@@ -1052,11 +1055,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   temperature: -1
   minTemperature: -1
-  maxTemperature: 50
+  maxTemperature: 1
   temperatureRanges:
   - min: 0
-    max: 100
+    max: 1
     efect: {fileID: 11400002}
+  - min: -1
+    max: 1
+    efect: {fileID: 11400004}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1070,8 +1076,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Melting: 0
   MeltingSpeed: .100000001
-  DripEfects: {fileID: 400036}
-  MeltEfects: {fileID: 400034}
+  waterDestination: {fileID: 0}
+  DripEfects: {fileID: 11400006}
+  MeltEfects: {fileID: 11400008}
+  Dead: 0
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de77252ee73828d4fbd054947b3db3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempHandler: {fileID: 11400000}
+  targetTemperature: -1
+  intensity: 5
+  Active: 0
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a63d295b92e63f4da7e814471defa42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 19800042}
+  - {fileID: 19800052}
+  - {fileID: 19800034}
+  - {fileID: 19800036}
+  - {fileID: 19800054}
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a63d295b92e63f4da7e814471defa42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 19800022}
+  - {fileID: 19800012}
+  - {fileID: 19800006}
+  - {fileID: 19800024}
+  - {fileID: 19800004}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3405,7 +3462,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .230000004
+    radius: .75999999
     angle: 0
     length: 5
     boxX: 1
@@ -3418,7 +3475,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4457,8 +4514,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .230000004
-    angle: 0
+    radius: .75999999
+    angle: 17.5225468
     length: 5
     boxX: 1
     boxY: 1
@@ -4470,7 +4527,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7603,7 +7660,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .230000004
+    radius: .889999986
     angle: 0
     length: 5
     boxX: 1
@@ -7616,7 +7673,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12843,7 +12900,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .230000004
+    radius: .709999979
     angle: 0
     length: 5
     boxX: 1
@@ -12856,7 +12913,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -13895,8 +13952,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .00999999978
-    angle: 0
+    radius: .790000021
+    angle: 28.5943642
     length: 5
     boxX: 1
     boxY: 1
@@ -13908,7 +13965,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:

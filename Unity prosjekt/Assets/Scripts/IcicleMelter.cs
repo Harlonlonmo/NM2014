@@ -10,42 +10,71 @@ class IcicleMelter : TemperatureEfect
     public bool Melting = false;
     public float MeltingSpeed = 0.1f;
 
-    public Transform DripEfects;
-    public Transform MeltEfects;
+    public float waterVolume;
+
+    public WaterTank waterDestination;
+
+    public ParticleController DripEfects;
+    public ParticleController MeltEfects;
+
+    public bool Dead = false;
+
+    private float prosent = 1;
 
     void Start()
     {
-        MeltEfects.gameObject.SetActive(false);
+        MeltEfects.StopEmitting();
     }
 
     void Update()
     {
         if (Melting)
         {
-            if (transform.localScale.y > 0)
+            if (prosent > 0)
             {
-                transform.localScale -= new Vector3(0, MeltingSpeed, 0) * Time.deltaTime;
+                float old = prosent;
+                prosent -= MeltingSpeed * Time.deltaTime;
+                prosent = Math.Min(1, Math.Max(0, prosent));
+                if (waterDestination)
+                {
+                    waterDestination.AddWater((old-prosent) * waterVolume);
+                }
+                transform.localScale = new Vector3(1, prosent, 1);
             }
             else
             {
-                Deactivate();
-
+                Stop();
             }
         }
     }
 
     public override void Activate()
     {
-        Melting = true;
-        MeltEfects.gameObject.SetActive(true);
-        DripEfects.gameObject.SetActive(false);
+        if (!Dead)
+        {
+            Melting = true;
+            MeltEfects.StartEmitting();
+            DripEfects.StopEmitting();
+        }
     }
 
     public override void Deactivate()
     {
+        if (!Dead)
+        {
+            Melting = false;
+            MeltEfects.StopEmitting();
+            DripEfects.StartEmitting();
+        }
+    }
+
+    private void Stop()
+    {
+
         Melting = false;
-        MeltEfects.gameObject.SetActive(false);
-        DripEfects.gameObject.SetActive(false);
+        MeltEfects.StopEmitting();
+        DripEfects.StopEmitting();
+        Dead = true;
     }
 
 }
