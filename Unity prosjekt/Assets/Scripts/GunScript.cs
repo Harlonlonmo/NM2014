@@ -8,10 +8,17 @@ public class GunScript : MonoBehaviour
     public Beam FreezeBeam;
     public Beam HeatBeam;
 
+    public float FreezeTemperature;
+    public float FreezeIntensity;
+
+    public float HeatTemperature;
+    public float HeatIntensity;
+
 	// Use this for initialization
 	void Start ()
 	{
-        FreezeBeam.enabled = false;
+        FreezeBeam.SetEnabled(false);
+        //HeatBeam.SetEnabled(false);
 	}
 	
 	// Update is called once per frame
@@ -26,9 +33,9 @@ public class GunScript : MonoBehaviour
 	        if (Physics.Raycast(ray, out hit))
 	        {
                 end = hit.point;
-	            if (hit.transform.tag == "interacable")
+	            if (hit.transform.tag == "interactable")
 	            {
-	                hit.transform.GetComponent<TemperatureHandler>();
+	                hit.transform.GetComponent<TemperatureHandler>().ChangeTemperature(FreezeTemperature, FreezeIntensity);
 	            }
 	        }
             FreezeBeam.Render(start, end);
@@ -48,9 +55,9 @@ public class GunScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 end = hit.point;
-                if (hit.transform.tag == "interacable")
+                if (hit.transform.tag == "interactable")
                 {
-                    hit.transform.GetComponent<TemperatureHandler>();
+                    hit.transform.GetComponent<TemperatureHandler>().ChangeTemperature(HeatTemperature, HeatIntensity);
                 }
             }
             HeatBeam.Render(start, end);

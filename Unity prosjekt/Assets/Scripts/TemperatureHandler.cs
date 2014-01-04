@@ -11,12 +11,17 @@ public class TemperatureHandler : MonoBehaviour
         public float min;
         public float max;
 
-        public Action enterEvent;
-        public Action exitEvent;
+        public bool Active { get; set; }
+
+        public TemperatureEfect efect;
     }
 
 
     public float temperature;
+
+    public float minTemperature;
+    public float maxTemperature;
+
     public temperatureRange[] temperatureRanges;
 
 	void OnCollisionEnter(Collision col)
@@ -24,8 +29,30 @@ public class TemperatureHandler : MonoBehaviour
 
 	}
 
-    public void changeTemperature(float target, float intrnsity)
+    public void ChangeTemperature(float target, float intensity)
     {
-        temperature += (target - temperature);
+        temperature += Math.Sign(target - temperature) * intensity;
+
+        temperature = Math.Min(maxTemperature, Math.Max(minTemperature, temperature));
+
+        foreach (temperatureRange t in temperatureRanges)
+        {
+            if (temperature >= t.min && temperature < t.max)
+            {
+                if (!t.Active)
+                {
+                    t.Active = true;
+                    t.efect.Activate();
+                }
+            }
+            else
+            {
+                if (t.Active)
+                {
+                    t.Active = false;
+                    t.efect.Deactivate();
+                }
+            }
+        }
     }
 }
