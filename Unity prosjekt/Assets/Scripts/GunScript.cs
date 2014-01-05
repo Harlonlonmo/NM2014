@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using System.Collections;
 
 public class GunScript : MonoBehaviour
@@ -35,7 +36,8 @@ public class GunScript : MonoBehaviour
                 end = hit.point;
 	            if (hit.transform.tag == "interactable")
 	            {
-	                hit.transform.GetComponent<TemperatureHandler>().ChangeTemperature(FreezeTemperature, FreezeIntensity);
+                    var tHandler = hit.transform.GetComponent<TemperatureHandler>();
+	                tHandler.ChangeTemperature(FreezeTemperature, FreezeIntensity);
 	            }
 	        }
             FreezeBeam.Render(start, end);
@@ -57,7 +59,8 @@ public class GunScript : MonoBehaviour
                 end = hit.point;
                 if (hit.transform.tag == "interactable")
                 {
-                    hit.transform.GetComponent<TemperatureHandler>().ChangeTemperature(HeatTemperature, HeatIntensity);
+                    var tHandler = hit.transform.GetComponent<TemperatureHandler>();
+                    tHandler.ChangeTemperature(HeatTemperature, HeatIntensity);
                 }
             }
             HeatBeam.Render(start, end);
