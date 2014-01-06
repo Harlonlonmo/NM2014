@@ -22,11 +22,11 @@ public class GunScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
 
 	    if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") >= 0.5f)
 	    {
-	        Ray ray = new Ray(muzzleObject.position, muzzleObject.forward);
+	        Ray ray = new Ray(Camera.main.transform.position, muzzleObject.forward);
 	        Vector3 start = ray.origin;
 	        Vector3 end = ray.GetPoint(100);
 	        RaycastHit hit;
@@ -53,7 +53,7 @@ public class GunScript : MonoBehaviour
 
         if (Input.GetButton("Fire2") || Input.GetAxis("Fire2") >= 0.5f)
         {
-            Ray ray = new Ray(muzzleObject.position, muzzleObject.forward);
+            Ray ray = new Ray(Camera.main.transform.position, muzzleObject.forward);
             Vector3 start = ray.origin;
             Vector3 end = ray.GetPoint(100);
             RaycastHit hit;

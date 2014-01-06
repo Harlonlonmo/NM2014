@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Skull_Free_Gold
-  m_Shader: {fileID: 4800000, guid: 0fcafbb35d3a1374aab1b2286031edf7, type: 3}
+  m_Shader: {fileID: 4800000, guid: c0096a96d54378848b8674c4703cd253, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -52,11 +52,11 @@ Material:
       data:
         first:
           name: _Reflection
-        second: .128198281
+        second: 0
       data:
         first:
           name: _Shininess
-        second: .143880591
+        second: .0901702568
       data:
         first:
           name: _EdgeAlpha
@@ -64,7 +64,7 @@ Material:
       data:
         first:
           name: _Gloss
-        second: 1
+        second: .178571418
       data:
         first:
           name: _FrezPow
@@ -72,11 +72,11 @@ Material:
       data:
         first:
           name: _FrezFalloff
-        second: .298507422
+        second: 0
       data:
         first:
           name: _Metalics
-        second: .656716406
+        second: .460287839
       data:
         first:
           name: _Density
@@ -93,11 +93,11 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .862745106, g: .612125397, b: .175932318, a: 1}
+        second: {r: .58431375, g: .356862754, b: 0, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: .925490201, g: .74156487, b: .341161072, a: 1}
+        second: {r: 1, g: .709803939, b: .0156862754, a: 1}
       data:
         first:
           name: _ReflectColor
