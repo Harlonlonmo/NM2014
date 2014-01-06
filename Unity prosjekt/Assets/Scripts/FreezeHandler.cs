@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FreezeHandler : TemperatureEfect
+public class FreezeHandler : HitEfect
 {
     private MeshRenderer _mesh;
 
@@ -17,10 +17,5 @@ public class FreezeHandler : TemperatureEfect
         _mesh.enabled = true;
         gameObject.layer = 10;
         Debug.Log("frozen");
-    }
-
-    public override void Deactivate()
-    {
-
     }
 }

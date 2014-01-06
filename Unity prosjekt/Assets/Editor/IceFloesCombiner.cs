@@ -43,11 +43,11 @@ public class IceFloesCombiner : EditorWindow {
     private void CombineOne(Transform t)
     {
         var f = t.GetComponent<FreezeHandler>();
-        var th = t.GetComponent<TemperatureHandler>();
+        var th = t.GetComponent<HitHandler>();
 
         if (f != null && th != null)
         {
-            th.temperatureRanges[0].efect = f;
+            th.freezeEfects[0] = f;
         }
     }
 }

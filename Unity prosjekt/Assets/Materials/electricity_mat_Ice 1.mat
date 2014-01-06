@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: electricity_mat_Ice
+  m_Name: electricity_mat_Ice 1
   m_Shader: {fileID: 4800000, guid: 6be13cec2a7d46d44a6e62624ead4be3, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -31,11 +31,11 @@ Material:
       data:
         first:
           name: _Brightness_Min
-        second: 1.10298502
+        second: 1.875
       data:
         first:
           name: _Brightness_Max
-        second: 2.5
+        second: 1.76785719
       data:
         first:
           name: _MotionRateGlobal_Pixel
@@ -47,19 +47,19 @@ Material:
       data:
         first:
           name: _MiddleOpacityMult
-        second: 1
+        second: 3.27999997
       data:
         first:
           name: _MiddleOpacityFalloff
-        second: 2
+        second: 7.30000019
       data:
         first:
           name: _MotionRateGlobal
-        second: 1
+        second: 2.6500001
       data:
         first:
           name: _NoiseMotionRate
-        second: 1.07142854
+        second: .357142866
       data:
         first:
           name: _NoiseFrequency
@@ -83,7 +83,7 @@ Material:
       data:
         first:
           name: _ElectricitySharpness
-        second: 6.55970144
+        second: 1.96428573
       data:
         first:
           name: _ElectricityBrightness
@@ -340,7 +340,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .345588207, g: .918762863, b: 1, a: 1}
+        second: {r: .0698529482, g: .253397614, b: .279411793, a: 1}
       data:
         first:
           name: _Pixel_Color0
