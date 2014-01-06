@@ -35,7 +35,12 @@ public class GunScript : MonoBehaviour
                 end = hit.point;
 	            if (hit.transform.tag == "interactable")
 	            {
-	                hit.transform.GetComponent<TemperatureHandler>().ChangeTemperature(FreezeTemperature, FreezeIntensity);
+                    TemperatureHandler temp = hit.transform.GetComponent<TemperatureHandler>();
+	                if (temp)
+	                {
+	                    temp.ChangeTemperature(FreezeTemperature, FreezeIntensity);
+	                }
+
 	            }
 	        }
             FreezeBeam.Render(start, end);
