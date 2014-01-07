@@ -18,7 +18,7 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         FreezeBeam.SetEnabled(false);
-        //HeatBeam.SetEnabled(false);
+        HeatBeam.SetEnabled(false);
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class GunScript : MonoBehaviour
         {
             type = RayType.Freeze;
         }
-        else if (Input.GetButton("Interact"))
+        else if (Input.GetButtonDown("Interact"))
         {
             type = RayType.Interact;
         }

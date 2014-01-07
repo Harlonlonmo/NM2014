@@ -17,7 +17,7 @@ Properties {
 }
 
 SubShader {
-        Tags { "Queue"="Transparent + 1" "RenderType"="Transperent" }
+        Tags { "Queue"="Transparent" "RenderType"="Transperent" }
 		GrabPass {}		
         LOD 200
 		ZWrite On

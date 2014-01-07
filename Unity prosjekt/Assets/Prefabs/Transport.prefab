@@ -152,6 +152,7 @@ MonoBehaviour:
   StartPos: {fileID: 400004}
   EndPos: {fileID: 400006}
   Speed: 1
+  TimeInterval: 5
   HookPrefab: {fileID: 100014, guid: 6e454217d227dab4d922067d2aa67b54, type: 2}
   IceCubePrefabs:
   - {fileID: 100000, guid: 354c74c2aee3d9646a5919d18368e0d0, type: 2}
@@ -160,6 +161,7 @@ MonoBehaviour:
   - {fileID: 100002, guid: 2f95f38ea82369548a165a38777bdab0, type: 2}
   - {fileID: 100000, guid: d6ed2ce200da4e4468ec949e162cd7ac, type: 2}
   - {fileID: 100000, guid: 9307df7165971c94fbdfdc05aa77f847, type: 2}
+  Active: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

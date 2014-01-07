@@ -92,15 +92,15 @@ Material:
       data:
         first:
           name: _WaveScale
-        second: .0199999996
+        second: .0548214316
       data:
         first:
           name: _ReflDistort
-        second: .279285699
+        second: 0
       data:
         first:
           name: _RefrDistort
-        second: .400000006
+        second: .828571439
     m_Colors:
       data:
         first:
@@ -189,7 +189,7 @@ Material:
       data:
         first:
           name: _RefrColor
-        second: {r: .340000004, g: .850000024, b: .920000017, a: 1}
+        second: {r: 0, g: 1, b: 1, a: 1}
       data:
         first:
           name: WaveSpeed
@@ -197,7 +197,7 @@ Material:
       data:
         first:
           name: _HorizonColor
-        second: {r: .172000006, g: .463, b: .435000002, a: 1}
+        second: {r: .191068307, g: .838235259, b: .775964856, a: 1}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6

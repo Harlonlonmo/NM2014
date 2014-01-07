@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
+[System.Serializable]
+class Scaling
+{
+    public bool X;
+    public bool Y;
+    public bool Z;
+}
 
 class IcicleMelter : TemperatureEfect
 {
+    public Scaling Scaling;
+
     public bool Melting = false;
     public float MeltingSpeed = 0.1f;
 
@@ -23,7 +32,8 @@ class IcicleMelter : TemperatureEfect
 
     void Start()
     {
-        MeltEfects.StopEmitting();
+        if (MeltEfects)
+            MeltEfects.StopEmitting();
     }
 
     void Update()
@@ -37,9 +47,9 @@ class IcicleMelter : TemperatureEfect
                 prosent = Math.Min(1, Math.Max(0, prosent));
                 if (waterDestination)
                 {
-                    waterDestination.AddWater((old-prosent) * waterVolume);
+                    waterDestination.AddWater((old - prosent) * waterVolume);
                 }
-                transform.localScale = new Vector3(1, prosent, 1);
+                transform.localScale = new Vector3(Scaling.X ? prosent : 1, Scaling.Y ? prosent : 1, Scaling.Z ? prosent : 1);
             }
             else
             {
@@ -53,8 +63,10 @@ class IcicleMelter : TemperatureEfect
         if (!Dead)
         {
             Melting = true;
-            MeltEfects.StartEmitting();
-            DripEfects.StopEmitting();
+            if (MeltEfects)
+                MeltEfects.StartEmitting();
+            if (DripEfects)
+                DripEfects.StopEmitting();
         }
     }
 
@@ -63,8 +75,10 @@ class IcicleMelter : TemperatureEfect
         if (!Dead)
         {
             Melting = false;
-            MeltEfects.StopEmitting();
-            DripEfects.StartEmitting();
+            if (MeltEfects)
+                MeltEfects.StopEmitting();
+            if (DripEfects)
+                DripEfects.StartEmitting();
         }
     }
 
@@ -72,8 +86,10 @@ class IcicleMelter : TemperatureEfect
     {
 
         Melting = false;
-        MeltEfects.StopEmitting();
-        DripEfects.StopEmitting();
+        if (MeltEfects)
+            MeltEfects.StopEmitting();
+        if (DripEfects)
+            DripEfects.StopEmitting();
         Dead = true;
     }
 
