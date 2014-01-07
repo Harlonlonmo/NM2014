@@ -4440,7 +4440,7 @@ AudioSource:
   Mute: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.99000001
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -4498,7 +4498,7 @@ AudioSource:
   Mute: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.99000001
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -4846,9 +4846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1c78370b0f73b40b357a16a2a8fd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartSound: {fileID: 8300000, guid: 1a21843685710104886ad81f6ee217e2, type: 3}
-  LoopSound: {fileID: 8300000, guid: 1792ae28d22f9954cb1e1dcd9df154a7, type: 3}
-  EndSound: {fileID: 8300000, guid: dc71d947552e55048aeda806b2510d98, type: 3}
+  StartSound: {fileID: 8300000, guid: 40b8223cf40aa6a4bb88b01bbcf03053, type: 3}
+  LoopSound: {fileID: 8300000, guid: fed217af42276b74b928e07d557ba12d, type: 3}
+  EndSound: {fileID: 8300000, guid: 0206e351ae15a9f4e9d21c9149f8d4d2, type: 3}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
