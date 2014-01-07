@@ -10,7 +10,8 @@ public class BeamManager : Beam
     public GameObject[] Beams;
     public GameObject MuzzleLight;
     public GameObject ImpactLight;
-    public float ImpactLightOffset; 
+
+    public float ImpactLightOffset;
 
     private void Start()
     {
@@ -41,11 +42,10 @@ public class BeamManager : Beam
 
     void SetTarget(Vector3 pos1, Vector3 pos2)
     {
-        Vector3 direction = pos2 - pos1;
-        foreach (var beam in Beams)
+        var direction = pos2 - pos1;
+        foreach (var receiver in Beams.SelectMany(beam => beam.GetComponent<LightningEmitter>().lightningReceivers))
         {
-            beam.transform.rotation = Quaternion.LookRotation(direction);
-            beam.transform.localScale = new Vector3(1, 1, direction.magnitude);
+            receiver.transform.position = pos2;
         }
     }
 }
