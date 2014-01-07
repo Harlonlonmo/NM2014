@@ -5,7 +5,7 @@ public enum RayType
     Freeze,
     Heat,
     Interact,
-    None
+    Hover
 }
 
 public class HitHandler : MonoBehaviour
@@ -13,6 +13,8 @@ public class HitHandler : MonoBehaviour
     public HitEfect[] heatEfects;
     public HitEfect[] freezeEfects;
     public HitEfect[] InteractEfects;
+    public HitEfect[] HoverEfects;
+
     public void Hit(RaycastHit hit, RayType rayType)
     {
         HitEfect[] effects;
@@ -26,6 +28,9 @@ public class HitHandler : MonoBehaviour
                 break;
             case RayType.Interact:
                 effects = InteractEfects;
+                break;
+            case RayType.Hover:
+                effects = HoverEfects;
                 break;
             default:
                 return;

@@ -16,6 +16,6 @@ public class FreezeHandler : HitEfect
     {
         _mesh.enabled = true;
         gameObject.layer = 10;
-        Debug.Log("frozen");
+        //Debug.Log("frozen");
     }
 }

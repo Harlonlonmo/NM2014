@@ -14,145 +14,79 @@ public class GunScript : MonoBehaviour
     public float HeatTemperature;
     public float HeatIntensity;
 
-	// Use this for initialization
-	void Start ()
-	{
+    // Use this for initialization
+    void Start()
+    {
         FreezeBeam.SetEnabled(false);
         //HeatBeam.SetEnabled(false);
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    RayType type = RayType.None;
-	    if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") >= 0.5f)
-	    {
-	        type = RayType.Heat;
-	    }else if (Input.GetButton("Fire2") || Input.GetAxis("Fire2") >= 0.5f)
-	    {
-	        type = RayType.Freeze;
-	    }else if (Input.GetButton("Interact"))
-	    {
-	        type = RayType.Interact;
-	    }
+    }
 
-
-	    if (type != RayType.None)
-	    {
-	        Ray ray = new Ray(Camera.main.transform.position, muzzleObject.forward);
-	        Vector3 start = ray.origin;
-	        Vector3 end = ray.GetPoint(100);
-	        RaycastHit hit;
-	        if (Physics.Raycast(ray, out hit))
-	        {
-	            //Debug.Log("Raycast hit : " + hit.transform.gameObject.name);
-	            end = hit.point;
-
-	            if (hit.transform.tag == "interactable")
-	            {
-
-
-	                if (type == RayType.Freeze || type == RayType.Heat)
-	                {
-	                    TemperatureHandler temp = hit.transform.GetComponent<TemperatureHandler>();
-	                    if (temp)
-	                    {
-	                        float target = type == RayType.Freeze ? FreezeTemperature : HeatTemperature;
-	                        float intensity = type == RayType.Freeze ? FreezeIntensity : HeatIntensity;
-	                        temp.ChangeTemperature(target, intensity);
-	                    }
-	                }
-
-	                HitHandler hitHand = hit.transform.GetComponent<HitHandler>();
-	                if (hitHand)
-	                {
-	                    hitHand.Hit(hit, type);
-	                }
-
-	            }
-	        }
-	        if (type == RayType.Freeze)
-	        {
-	            FreezeBeam.Render(start, end);
-	            FreezeBeam.SetEnabled(true);
-	        }
-	        else
-	        {
-	            FreezeBeam.SetEnabled(false);
-	        }
-	        if (type == RayType.Heat)
-	        {
-	            HeatBeam.Render(start, end);
-	            HeatBeam.SetEnabled(true);
-	        }
-	        else
-	        {
-	            HeatBeam.SetEnabled(false);
-	        }
-	    }
-	    else
-	    {
-	        FreezeBeam.SetEnabled(false);
-            HeatBeam.SetEnabled(false);
-	    }
-	    /*
-	    {
-	        Ray ray = new Ray(Camera.main.transform.position, muzzleObject.forward);
-	        Vector3 start = ray.origin;
-	        Vector3 end = ray.GetPoint(100);
-	        RaycastHit hit;
-	        if (Physics.Raycast(ray, out hit))
-	        {
-                end = hit.point;
-	            if (hit.transform.tag == "interactable")
-	            {
-                    TemperatureHandler temp = hit.transform.GetComponent<TemperatureHandler>();
-	                if (temp)
-	                {
-	                    temp.ChangeTemperature(FreezeTemperature, FreezeIntensity);
-	                }
-
-	                HitHandler hitHand = hit.transform.GetComponent<HitHandler>();
-	                if(hitHand)
-                    {
-                        hitHand.Hit(hit, RayType.Freeze);
-	                }
-
-	            }
-	        }
-            FreezeBeam.Render(start, end);
-            FreezeBeam.SetEnabled(true);
-	    }
-	    else
-	    {
-            FreezeBeam.SetEnabled(false);
-	    }
-
-        if (Input.GetButton("Fire2") || Input.GetAxis("Fire2") >= 0.5f)
+    // Update is called once per frame
+    void Update()
+    {
+        RayType type = RayType.Hover;
+        if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") >= 0.5f)
         {
-            Ray ray = new Ray(Camera.main.transform.position, muzzleObject.forward);
-            Vector3 start = ray.origin;
-            Vector3 end = ray.GetPoint(100);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            type = RayType.Heat;
+        }
+        else if (Input.GetButton("Fire2") || Input.GetAxis("Fire2") >= 0.5f)
+        {
+            type = RayType.Freeze;
+        }
+        else if (Input.GetButton("Interact"))
+        {
+            type = RayType.Interact;
+        }
+
+        Ray ray = new Ray(Camera.main.transform.position, muzzleObject.forward);
+        Vector3 start = ray.origin;
+        Vector3 end = ray.GetPoint(100);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            //Debug.Log("Raycast hit : " + hit.transform.gameObject.name);
+            end = hit.point;
+
+            if (hit.transform.tag == "interactable")
             {
-                end = hit.point;
-                if (hit.transform.tag == "interactable")
+
+
+                if (type == RayType.Freeze || type == RayType.Heat)
                 {
-                    hit.transform.GetComponent<TemperatureHandler>().ChangeTemperature(HeatTemperature, HeatIntensity);
+                    TemperatureHandler temp = hit.transform.GetComponent<TemperatureHandler>();
+                    if (temp)
+                    {
+                        float target = type == RayType.Freeze ? FreezeTemperature : HeatTemperature;
+                        float intensity = type == RayType.Freeze ? FreezeIntensity : HeatIntensity;
+                        temp.ChangeTemperature(target, intensity);
+                    }
                 }
+
                 HitHandler hitHand = hit.transform.GetComponent<HitHandler>();
                 if (hitHand)
                 {
-                    hitHand.Hit(hit, RayType.Heat);
+                    hitHand.Hit(hit, type);
                 }
+
             }
+        }
+        if (type == RayType.Freeze)
+        {
+            FreezeBeam.Render(start, end);
+            FreezeBeam.SetEnabled(true);
+        }
+        else
+        {
+            FreezeBeam.SetEnabled(false);
+        }
+        if (type == RayType.Heat)
+        {
             HeatBeam.Render(start, end);
             HeatBeam.SetEnabled(true);
         }
         else
         {
             HeatBeam.SetEnabled(false);
-        }*/
-	}
+        }
+    }
 }
