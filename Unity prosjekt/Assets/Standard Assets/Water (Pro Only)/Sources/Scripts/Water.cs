@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[ExecuteInEditMode] // Make water live-update even when not in play mode
+//[ExecuteInEditMode] // Make water live-update even when not in play mode
 public class Water : MonoBehaviour
 {
 	public enum WaterMode {
@@ -152,18 +152,18 @@ public class Water : MonoBehaviour
 	void OnDisable()
 	{
 		if( m_ReflectionTexture ) {
-			DestroyImmediate( m_ReflectionTexture );
+			Destroy( m_ReflectionTexture );
 			m_ReflectionTexture = null;
 		}
 		if( m_RefractionTexture ) {
-			DestroyImmediate( m_RefractionTexture );
+            Destroy(m_RefractionTexture);
 			m_RefractionTexture = null;
 		}
 		foreach (KeyValuePair<Camera, Camera> kvp in m_ReflectionCameras)
-        	DestroyImmediate( (kvp.Value).gameObject );
+            Destroy((kvp.Value).gameObject);
         m_ReflectionCameras.Clear();
 		foreach (KeyValuePair<Camera, Camera> kvp in m_RefractionCameras)
-        	DestroyImmediate( (kvp.Value).gameObject );
+        	Destroy( (kvp.Value).gameObject );
         m_RefractionCameras.Clear();
 	}
 	

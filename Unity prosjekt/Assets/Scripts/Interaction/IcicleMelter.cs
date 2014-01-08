@@ -5,14 +5,14 @@ using System.Text;
 using UnityEngine;
 
 [System.Serializable]
-class Scaling
+public class Scaling
 {
     public bool X;
     public bool Y;
     public bool Z;
 }
 
-class IcicleMelter : TemperatureEfect
+public class IcicleMelter : TemperatureEfect
 {
     public Scaling Scaling;
 
