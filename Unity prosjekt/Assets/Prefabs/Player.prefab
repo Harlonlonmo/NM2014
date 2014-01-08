@@ -150,6 +150,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400034}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -4792,10 +4793,10 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 90
-        value: 0
-        inSlope: 0
-        outSlope: 0
+      - time: 105.783287
+        value: .343675792
+        inSlope: -.0192690995
+        outSlope: -.0192690995
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -5027,6 +5028,20 @@ MonoBehaviour:
   StartSound: {fileID: 8300000, guid: 13da14e8a1c20fc4db2a6c0f2ef7acd0, type: 3}
   LoopSound: {fileID: 8300000, guid: 583e49d8642c91e489cccd690ccd4e1b, type: 3}
   EndSound: {fileID: 8300000, guid: 7cbccf9dc2915c64baf4361bf60d7f7c, type: 3}
+--- !u!114 &11400034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b096ceb041940c0479ff6494b7e4fd5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClimbSlopeLimit: 90
+  ClimbSlidingEnabled: 0
+  active: 0
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1
