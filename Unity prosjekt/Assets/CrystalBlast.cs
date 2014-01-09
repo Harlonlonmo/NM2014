@@ -2,7 +2,8 @@
 using System.Linq;
 using UnityEngine;
 
-public class CrystalBlast : TemperatureEfect {
+public class CrystalBlast : TemperatureEfect
+{
     public bool BeamActive;
     public GameObject[] Beams;
     public GameObject[] ParticleSystems;
@@ -12,12 +13,16 @@ public class CrystalBlast : TemperatureEfect {
     public GameObject MuzzleLight;
     public GameObject ImpactLight;
 
-    public Transform TargetTransform; 
+    public Transform TargetTransform;
 
     private List<ParticleSystem> _pSystems;
 
+    private void Awake()
+    {
+        _pSystems = new List<ParticleSystem>();
+    }
 
-    void Start()
+    private void Start()
     {
         BeamActive = false;
         foreach (var o in Beams)
@@ -37,20 +42,20 @@ public class CrystalBlast : TemperatureEfect {
     {
         foreach (var beam in Beams)
         {
-            beam.SetActive(enabled);
+            beam.SetActive(true);
         }
 
         foreach (ParticleSystem pSystem in _pSystems)
         {
-            pSystem.enableEmission = enabled;
+            pSystem.enableEmission = true;
         }
 
 
-        MuzzleLight.SetActive(enabled);
-        ImpactLight.SetActive(enabled);
+        MuzzleLight.SetActive(true);
+        ImpactLight.SetActive(true);
         if (Sound)
         {
-            if (enabled)
+            if (true)
             {
                 Sound.Play();
             }
@@ -61,22 +66,30 @@ public class CrystalBlast : TemperatureEfect {
         }
     }
 
-    void Update()
+    private void Update()
     {
-        SetTarget(transform.position, TargetTransform.position);
-        ImpactLight.transform.position = TargetTransform .position - (TargetTransform.position - transform.position).normalized;
+        foreach (var receiver in Beams.SelectMany(beam => beam.GetComponent<LightningEmitter>().lightningReceivers))
+        {
+            receiver.transform.position = TargetTransform.position;
+        }
+
+        ImpactLight.transform.position = TargetTransform.position;
     }
 
     public override void Deactivate()
     {
-
-    }
-
-    void SetTarget(Vector3 pos1, Vector3 pos2)
-    {
-        foreach (var receiver in Beams.SelectMany(beam => beam.GetComponent<LightningEmitter>().lightningReceivers))
+        foreach (var beam in Beams)
         {
-            receiver.transform.position = pos2;
+            beam.SetActive(false);
         }
+
+        foreach (ParticleSystem pSystem in _pSystems)
+        {
+            pSystem.enableEmission = false;
+        }
+
+        MuzzleLight.SetActive(false);
+        ImpactLight.SetActive(false);
+        Sound.Stop();
     }
 }
