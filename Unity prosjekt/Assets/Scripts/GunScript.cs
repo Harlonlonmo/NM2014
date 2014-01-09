@@ -14,6 +14,8 @@ public class GunScript : MonoBehaviour
     public float HeatTemperature;
     public float HeatIntensity;
 
+
+
     // Use this for initialization
     void Start()
     {

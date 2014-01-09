@@ -15,8 +15,11 @@ public class WaterTankPuzzle : WaterTank
         WaterLevel = 0;
     }
 
+    private Renderer[] subrenderers;
+
     void Start()
     {
+        subrenderers = GetComponentsInChildren<Renderer>();
         Reset();
         UpdateWater();
     }
@@ -25,6 +28,20 @@ public class WaterTankPuzzle : WaterTank
     {
         prosent = WaterLevel/fullWaterLevel;
         transform.localScale = new Vector3(1, prosent, 1);
+        if (prosent == 0)
+        {
+            foreach (Renderer r in subrenderers)
+            {
+                r.enabled = false;
+            }
+        }
+        else
+        {
+            foreach (Renderer r in subrenderers)
+            {
+                r.enabled = true;
+            }
+        }
     }
 
     public override void AddWater(float amount)
