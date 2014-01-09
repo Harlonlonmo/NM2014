@@ -1,20 +1,25 @@
 fileFormatVersion: 2
-guid: b132482afe5404749895f18bc750cfd2
+guid: 407e241d44589cc4fa9921ea79c2864d
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: RingWave001
-    100004: RingWave002
-    400000: //RootNode
-    400002: RingWave001
-    400004: RingWave002
-    2300000: RingWave001
-    2300002: RingWave002
-    3300000: RingWave001
-    3300002: RingWave002
+    100000: icepart
+    100002: //RootNode
+    100004: RingWave001
+    100006: RingWave002
+    400000: icepart
+    400002: //RootNode
+    400004: RingWave001
+    400006: RingWave002
+    2300000: icepart
+    2300002: RingWave001
+    2300004: RingWave002
+    3300000: icepart
+    3300002: RingWave001
+    3300004: RingWave002
     4300000: RingWave001
     4300002: RingWave002
+    4300004: icepart
     9500000: //RootNode
   materials:
     importMaterials: 1
