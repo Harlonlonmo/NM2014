@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TransportScript : HitEfect
+public class TransportScript : MonoBehaviour
 {
 
     public Transform StartPos;
@@ -34,7 +34,7 @@ public class TransportScript : HitEfect
         }
         else
         {
-            timer = 0;
+            timer = TimeInterval;
         }
     }
 
@@ -54,8 +54,14 @@ public class TransportScript : HitEfect
         hs.speed = Speed;
     }
 
-    public override void Activate()
+    public void Activate()
     {
         Active = true;
+        timer = TimeInterval;
+    }
+
+    public void Deactivate()
+    {
+        Active = false;
     }
 }

@@ -15,7 +15,7 @@ public class FreezeHandler : HitEfect
     public override void Activate()
     {
         _mesh.enabled = true;
-        gameObject.layer = 10;
+        gameObject.layer = LayerMask.NameToLayer("Ice");
         //Debug.Log("frozen");
     }
 }

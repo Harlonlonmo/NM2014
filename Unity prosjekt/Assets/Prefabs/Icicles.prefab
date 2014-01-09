@@ -1800,7 +1800,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100120}
   m_LocalRotation: {x: -.707106829, y: -4.32978063e-17, z: -4.32978063e-17, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -.207380295, z: 0}
   m_LocalScale: {x: -2.1285274, y: -2.1285274, z: -2.1285274}
   m_Children: []
   m_Father: {fileID: 400118}
@@ -7358,7 +7358,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -8400,7 +8400,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -10494,7 +10494,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -12588,7 +12588,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -13630,7 +13630,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -19932,7 +19932,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -22026,7 +22026,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -28328,7 +28328,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -30422,7 +30422,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -35672,7 +35672,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -36714,7 +36714,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -38808,7 +38808,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -40902,7 +40902,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -41944,7 +41944,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -44038,7 +44038,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -49288,7 +49288,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -52434,7 +52434,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0
@@ -56632,7 +56632,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 16
     quality: 0
     voxelSize: .5
     collisionMessages: 0

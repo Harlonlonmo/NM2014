@@ -15,7 +15,7 @@ public class HitHandler : MonoBehaviour
     public HitEfect[] InteractEfects;
     public HitEfect[] HoverEfects;
 
-    public void Hit(RaycastHit hit, RayType rayType)
+    public virtual void Hit(RaycastHit hit, RayType rayType)
     {
         HitEfect[] effects;
         switch (rayType)
