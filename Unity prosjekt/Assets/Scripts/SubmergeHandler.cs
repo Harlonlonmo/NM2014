@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SubmergeHandler : MonoBehaviour {
 
+    public bool OnlyFrost;
+
     //The scene's default fog settings
     private bool defaultFog;
     private Color defaultFogColor;
@@ -25,19 +27,24 @@ public class SubmergeHandler : MonoBehaviour {
         defaultFogDensity = RenderSettings.fogDensity;
         defaultSkybox = RenderSettings.skybox;
         //Set the background color
-        TargetCamera.backgroundColor = new Color(0, 0.4f, 0.7f, 1);
+        //TargetCamera.backgroundColor = new Color(0, 0.4f, 0.7f, 1);           //TODO fix
+
         frost = TargetCamera.GetComponent<FrostEffect>(); 
     }
 
 	// This method get's called when the object gets submerged in water (enter underwater trigger zone) 
     public void Submerge()
     {
+        freeze = true;
+
+        if (OnlyFrost) return;
+
         // Water Effect
         RenderSettings.fog = true;
         RenderSettings.fogColor = UnderWaterColor;
         RenderSettings.fogDensity = UnderWaterFogDensity;
         RenderSettings.skybox = noSkybox;
-        freeze = true; 
+        
     }
 
     void Update()
@@ -51,11 +58,14 @@ public class SubmergeHandler : MonoBehaviour {
 
     public void Emerge()
     {
+        freeze = false; 
+
+        if (OnlyFrost) return;
+
         // Water Effect
         RenderSettings.fog = defaultFog;
         RenderSettings.fogColor = defaultFogColor;
         RenderSettings.fogDensity = defaultFogDensity;
         RenderSettings.skybox = defaultSkybox;
-        freeze = false; 
     }
 }
