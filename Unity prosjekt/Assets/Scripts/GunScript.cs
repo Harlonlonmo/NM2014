@@ -14,6 +14,8 @@ public class GunScript : MonoBehaviour
     public float HeatTemperature;
     public float HeatIntensity;
 
+    public float interactionDistance = 5.0f;
+
 
 
     // Use this for initialization
@@ -64,12 +66,20 @@ public class GunScript : MonoBehaviour
                     }
                 }
 
-                HitHandler hitHand = hit.transform.GetComponent<HitHandler>();
-                if (hitHand)
+                bool jump = false;
+                if (type == RayType.Interact || type == RayType.Hover)
                 {
-                    hitHand.Hit(hit, type);
+                    jump = hit.distance > interactionDistance;
                 }
 
+                if (!jump)
+                {
+                    HitHandler hitHand = hit.transform.GetComponent<HitHandler>();
+                    if (hitHand)
+                    {
+                        hitHand.Hit(hit, type);
+                    }
+                }
             }
         }
         if (type == RayType.Freeze)

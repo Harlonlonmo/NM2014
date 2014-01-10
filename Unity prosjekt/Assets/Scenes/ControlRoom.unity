@@ -14947,6 +14947,53 @@ Transform:
   - {fileID: 1778303180}
   - {fileID: 567148298}
   m_Father: {fileID: 2100980430}
+--- !u!1 &1356585541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1356585543}
+  - 131: {fileID: 1356585542}
+  m_Layer: 0
+  m_Name: CrossHair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!131 &1356585542
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 13100000, guid: 0ee629ea67e1e114981cde74fbe58307,
+    type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  m_GameObject: {fileID: 1356585541}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 7f26ae9cfa68c21449321c65083878c7, type: 3}
+  m_Color: {r: .948529422, g: .446366757, b: .446366757, a: 1}
+  m_PixelInset:
+    serializedVersion: 2
+    x: -32
+    y: -32
+    width: 64
+    height: 64
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
+--- !u!4 &1356585543
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  m_GameObject: {fileID: 1356585541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1784279096}
 --- !u!1 &1361293644
 GameObject:
   m_ObjectHideFlags: 0
@@ -16641,6 +16688,46 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!1001 &1524488586
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+  m_RootGameObject: {fileID: 1784279095}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1524578099
 GameObject:
   m_ObjectHideFlags: 0
@@ -17374,6 +17461,7 @@ MonoBehaviour:
   FreezeIntensity: 10
   HeatTemperature: 50
   HeatIntensity: 10
+  interactionDistance: 5
 --- !u!1 &1588005619
 GameObject:
   m_ObjectHideFlags: 0
@@ -17424,6 +17512,57 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 0}
+--- !u!1 &1592672091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1592672092}
+  - 132: {fileID: 1592672093}
+  m_Layer: 0
+  m_Name: HoverGui
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1592672092
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  m_GameObject: {fileID: 1592672091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1784279096}
+--- !u!132 &1592672093
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 13200000, guid: 0ee629ea67e1e114981cde74fbe58307,
+    type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  m_GameObject: {fileID: 1592672091}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: test
+  m_Anchor: 7
+  m_Alignment: 1
+  m_PixelOffset: {x: 0, y: 22.6800003}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 28
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1596257501
 GameObject:
   m_ObjectHideFlags: 0
@@ -19114,6 +19253,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.83071184, y: 8.63800812, z: .755905867}
   m_Center: {x: -2.91535592, y: 4.31900406, z: .377949119}
+--- !u!1 &1784279095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1784279096}
+  m_Layer: 0
+  m_Name: GUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1784279096
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400004, guid: 0ee629ea67e1e114981cde74fbe58307, type: 2}
+  m_PrefabInternal: {fileID: 1524488586}
+  m_GameObject: {fileID: 1784279095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1356585543}
+  - {fileID: 1592672092}
+  m_Father: {fileID: 0}
 --- !u!1 &1811009819
 GameObject:
   m_ObjectHideFlags: 0

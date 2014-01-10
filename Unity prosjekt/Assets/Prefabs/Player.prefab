@@ -4761,6 +4761,7 @@ MonoBehaviour:
   FreezeIntensity: 10
   HeatTemperature: 50
   HeatIntensity: 10
+  interactionDistance: 5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5038,6 +5039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1000a04a3802da94090ad218e9c5249f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnlyFrost: 0
   TargetCamera: {fileID: 2000000}
   UnderWaterColor: {r: 0, g: .399999976, b: .699999988, a: .752941191}
   UnderWaterFogDensity: .119999997
