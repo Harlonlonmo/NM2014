@@ -1,8 +1,5 @@
 fileFormatVersion: 2
 guid: db8aebe950ae3794aae5ed890f38549b
 ShaderImporter:
-  defaultTextures:
-  - _MainTex: {instanceID: 0}
-  - _BlendTex: {instanceID: 0}
-  - _BumpMap: {instanceID: 0}
+  defaultTextures: []
   userData: 
