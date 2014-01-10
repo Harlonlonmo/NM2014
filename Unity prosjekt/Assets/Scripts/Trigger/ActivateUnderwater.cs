@@ -5,7 +5,6 @@ public class ActivateUnderwater : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         //if (other.gameObject.tag != "Player") return; 
         other.gameObject.GetComponent<SubmergeHandler>().Submerge();
     }

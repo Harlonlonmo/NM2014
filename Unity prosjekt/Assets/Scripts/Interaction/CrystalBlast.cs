@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 
 public enum Action
@@ -17,16 +18,26 @@ public class CrystalBlast : TemperatureEfect
     public LoopingSound Sound;
     public Camera camera; 
     public Action action;
-    public float DefreezeSpeed = 0.08f; 
+    public float DefreezeSpeed = 0.08f;
+    public float LifeTimeActivated = 3;
+    public GameObject HeatEffectLight;
+    public float DeHeatSpeed = 10; 
 
     public GameObject MuzzleLight;
     public GameObject ImpactLight;
 
     public Transform TargetTransform;
 
+
+    // Private shit
     private List<ParticleSystem> _pSystems;
     private FrostEffect _frost;
-    private bool _frostEnabled; 
+    private bool _frostEnabled;
+    private float _timer = 0;
+
+    private Light _heatEffectLight;
+    private LensFlare _heatEffectFlare;
+    private bool _heatEnabled;
 
     private void Awake()
     {
@@ -48,7 +59,12 @@ public class CrystalBlast : TemperatureEfect
         MuzzleLight.SetActive(false);
         ImpactLight.SetActive(false);
 
-        _frost = camera.GetComponent<FrostEffect>(); 
+        _frost = camera.GetComponent<FrostEffect>();
+
+        if (action != Action.ToMelt) return;
+        _heatEffectLight = HeatEffectLight.GetComponent<Light>();
+        _heatEffectFlare = HeatEffectLight.GetComponent<LensFlare>();
+        HeatEffectLight.SetActive(false);
     }
 
     public override void Activate()
@@ -72,6 +88,8 @@ public class CrystalBlast : TemperatureEfect
                     _frostEnabled = true; 
                     break;
                 case Action.ToMelt: obj.SetActive(false);
+                    HeatEffectLight.SetActive(true);
+                    _heatEnabled = true;
                     break; 
             }
         }
@@ -90,6 +108,9 @@ public class CrystalBlast : TemperatureEfect
                 Sound.Stop();
             }
         }
+
+        _timer = 0; 
+
     }
 
     private void Update()
@@ -99,11 +120,29 @@ public class CrystalBlast : TemperatureEfect
             receiver.transform.position = TargetTransform.position;
         }
 
-        ImpactLight.transform.position = TargetTransform.position; 
+        ImpactLight.transform.position = TargetTransform.position;
+
+        _timer += Time.deltaTime;
+        if (_timer >= LifeTimeActivated)
+        {
+            Deactivate();
+        }
+
+        if (_heatEnabled)
+        {
+            if (_heatEffectLight.intensity > 0)
+            {
+                _heatEffectLight.intensity -= Time.deltaTime*DeHeatSpeed;
+                _heatEffectFlare.brightness -= Time.deltaTime*DeHeatSpeed;
+            }
+            else _heatEnabled = false; 
+        }
+
 
         if(!_frostEnabled) return;
         if (_frost.FrostAmount > 0) _frost.FrostAmount -= Time.deltaTime*DefreezeSpeed;
         else _frostEnabled = false; 
+            
     }
 
     public override void Deactivate()
