@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 0386a03df72aef641aaff5c2550dab76
-=======
-guid: cc5ffce521945784ea68bae28b38fb80
->>>>>>> kenneth3
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
@@ -92,8 +88,8 @@ ModelImporter:
     100164: Cylinder044
     100166: Cylinder045
     100168: glass
-    100170: //RootNode
-    100172: liten_skjerm
+    100170: liten_skjerm
+    100172: //RootNode
     100174: n__kkel
     100176: n__kkelbrett
     100178: Plane001
@@ -193,8 +189,8 @@ ModelImporter:
     400164: Cylinder044
     400166: Cylinder045
     400168: glass
-    400170: //RootNode
-    400172: liten_skjerm
+    400170: liten_skjerm
+    400172: //RootNode
     400174: n__kkel
     400176: n__kkelbrett
     400178: Plane001
