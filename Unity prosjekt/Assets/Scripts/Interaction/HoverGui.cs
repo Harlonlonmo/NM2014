@@ -14,6 +14,8 @@ public class HoverGui : HitEfect
         gui.enabled = false;
     }
 
+
+    //TODO fix multiuse bug
     void LateUpdate()
     {
         if(!show)
