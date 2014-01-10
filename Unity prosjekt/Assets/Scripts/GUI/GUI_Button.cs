@@ -10,8 +10,6 @@ public class GUI_Button : MonoBehaviour
     public Event[] HoverEvents;
     public Event[] ExitEvents;
 
-    public event Action Click;
-
     public bool Activated = true;
     public bool OnlyOnTop = false;
 
@@ -52,10 +50,7 @@ public class GUI_Button : MonoBehaviour
             {
                 t.Activate();
             }
-            if (Click != null)
-            {
-                Click();
-            }
+            
         }
     }
 }

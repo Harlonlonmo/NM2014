@@ -20,6 +20,10 @@ public class LevelSpawnHandler : MonoBehaviour
 
     void Awake()
     {
+        if (TransportInfo.spawnPoint >= SpawnPoints.Length)
+        {
+            TransportInfo.spawnPoint = 0;
+        }
         Player.position = SpawnPoints[TransportInfo.spawnPoint].position;
         Player.rotation = SpawnPoints[TransportInfo.spawnPoint].rotation;
     }
