@@ -15,7 +15,9 @@ public class CrystalBlast : TemperatureEfect
     public GameObject[] ParticleSystems;
     public GameObject[] ToAffect;
     public LoopingSound Sound;
-    public Action action; 
+    public Camera camera; 
+    public Action action;
+    public float DefreezeSpeed = 0.08f; 
 
     public GameObject MuzzleLight;
     public GameObject ImpactLight;
@@ -23,6 +25,8 @@ public class CrystalBlast : TemperatureEfect
     public Transform TargetTransform;
 
     private List<ParticleSystem> _pSystems;
+    private FrostEffect _frost;
+    private bool _frostEnabled; 
 
     private void Awake()
     {
@@ -43,6 +47,8 @@ public class CrystalBlast : TemperatureEfect
 
         MuzzleLight.SetActive(false);
         ImpactLight.SetActive(false);
+
+        _frost = camera.GetComponent<FrostEffect>(); 
     }
 
     public override void Activate()
@@ -62,6 +68,8 @@ public class CrystalBlast : TemperatureEfect
             switch (action)
             {
                 case Action.ToFreese: obj.SetActive(true);
+                    _frost.FrostAmount = 1;
+                    _frostEnabled = true; 
                     break;
                 case Action.ToMelt: obj.SetActive(false);
                     break; 
@@ -92,6 +100,10 @@ public class CrystalBlast : TemperatureEfect
         }
 
         ImpactLight.transform.position = TargetTransform.position; 
+
+        if(!_frostEnabled) return;
+        if (_frost.FrostAmount > 0) _frost.FrostAmount -= Time.deltaTime*DefreezeSpeed;
+        else _frostEnabled = false; 
     }
 
     public override void Deactivate()
