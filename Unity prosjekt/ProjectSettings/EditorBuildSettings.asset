@@ -14,4 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WingRight.unity
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/IceWaterLevel.unity

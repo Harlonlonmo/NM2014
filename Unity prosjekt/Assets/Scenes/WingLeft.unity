@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 61351716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &61351719
@@ -4617,7 +4617,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2116848461}
   m_GameObject: {fileID: 218063622}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1000a04a3802da94090ad218e9c5249f, type: 3}
   m_Name: 
@@ -7436,7 +7436,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 315526559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &315526562
@@ -13841,7 +13841,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 510769951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &510769954
@@ -14801,7 +14801,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 551430956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &551430959
@@ -15066,7 +15066,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 559046193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &559046196
@@ -23604,7 +23604,6 @@ Transform:
   m_Children:
   - {fileID: 1587117891}
   - {fileID: 218063623}
-  - {fileID: 1192661306}
   m_Father: {fileID: 1962811093}
 --- !u!114 &844989554
 MonoBehaviour:
@@ -32238,83 +32237,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: .100000001
   IntensityLevel: 3
---- !u!1 &1192661305
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1192661306}
-  - 114: {fileID: 1192661309}
-  - 65: {fileID: 1192661308}
-  - 54: {fileID: 1192661307}
-  m_Layer: 9
-  m_Name: TriggerDetect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1192661306
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1192661305}
-  m_LocalRotation: {x: 0, y: -.79339391, z: 0, w: .60870862}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 844989553}
---- !u!54 &1192661307
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1192661305}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &1192661308
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1192661305}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .400000006, y: .400000006, z: .400000006}
-  m_Center: {x: 0, y: -.230000004, z: 0}
---- !u!114 &1192661309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1192661305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdb25fbeb8daa549a45c0616e70fd38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyFrost: 1
-  TargetCamera: {fileID: 844989560}
-  UnderWaterColor:
-    r: 0
-    g: .400000006
-    b: .699999988
-    a: .600000024
-  UnderWaterFogDensity: .0399999991
-  MaxFreeze: .5
-  FreezeSpeed: .0500000007
 --- !u!1 &1194389665
 GameObject:
   m_ObjectHideFlags: 0
@@ -38753,7 +38675,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344448979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1344448982
@@ -43200,7 +43122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424517503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1424517506
@@ -61840,9 +61762,9 @@ MonoBehaviour:
   canControl: 1
   useFixedUpdate: 1
   movement:
-    maxForwardSpeed: 8
-    maxSidewaysSpeed: 8
-    maxBackwardsSpeed: 8
+    maxForwardSpeed: 6
+    maxSidewaysSpeed: 6
+    maxBackwardsSpeed: 6
     slopeSpeedMultiplier:
       serializedVersion: 2
       m_Curve:
@@ -61866,7 +61788,7 @@ MonoBehaviour:
     maxGroundAcceleration: 20
     maxAirAcceleration: 15
     gravity: 20
-    maxFallSpeed: 80
+    maxFallSpeed: 20
   jumping:
     enabled: 1
     baseHeight: 1
@@ -63766,7 +63688,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2052556515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d26b79b46e781409ec414c8f26a4da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013e092952b20b642830d50c38b7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &2052556517
@@ -64472,38 +64394,6 @@ Prefab:
     - target: {fileID: 400016, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
       propertyPath: m_LocalRotation.w
       value: .60870862
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400030, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: movement.maxFallSpeed
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: movement.maxForwardSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: movement.maxSidewaysSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: movement.maxBackwardsSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100016, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400022, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400022, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}
-      propertyPath: FrostAmount
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f509cbd1ce72b0a4a82a4051c3ac35d3, type: 2}

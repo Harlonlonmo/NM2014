@@ -3,20 +3,15 @@ using System.Collections;
 
 public class TransporterScript : MonoBehaviour {
 
-    public string transportTo;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public string LevelName;
+    public int SpawnPoint;
 
     void OnTriggerEnter(Collider other)
     {
-        Application.LoadLevel(transportTo);
+        if (other.gameObject.tag == "Player")
+        {
+            TransportInfo.spawnPoint = SpawnPoint;
+            Application.LoadLevel(LevelName);
+        }
     }
 }
