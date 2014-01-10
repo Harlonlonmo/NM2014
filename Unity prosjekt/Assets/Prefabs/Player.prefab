@@ -5035,11 +5035,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdb25fbeb8daa549a45c0616e70fd38, type: 3}
+  m_Script: {fileID: 11500000, guid: 1000a04a3802da94090ad218e9c5249f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TargetCamera: {fileID: 2000000}
-  UnderWaterColor: {r: .00410900079, g: .161424801, b: .279411793, a: .701960802}
+  UnderWaterColor: {r: 0, g: .399999976, b: .699999988, a: .752941191}
   UnderWaterFogDensity: .119999997
   MaxFreeze: 1
   FreezeSpeed: .0500000007
