@@ -7,6 +7,7 @@ public class CrystalBlast : TemperatureEfect
     public bool BeamActive;
     public GameObject[] Beams;
     public GameObject[] ParticleSystems;
+    public GameObject[] ToMelt; 
 
     public LoopingSound Sound;
 
@@ -48,6 +49,11 @@ public class CrystalBlast : TemperatureEfect
         foreach (ParticleSystem pSystem in _pSystems)
         {
             pSystem.enableEmission = true;
+        }
+
+        foreach (GameObject meltable in ToMelt)
+        {
+            meltable.SetActive(false);
         }
 
 
