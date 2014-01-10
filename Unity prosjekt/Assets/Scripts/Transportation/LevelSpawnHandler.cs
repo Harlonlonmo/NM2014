@@ -4,6 +4,7 @@ using System.Collections;
 public static class TransportInfo
 {
     public static int spawnPoint = 0;
+    public static string levelName;
 
     public static void Reset()
     {

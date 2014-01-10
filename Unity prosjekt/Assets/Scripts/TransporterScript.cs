@@ -11,7 +11,8 @@ public class TransporterScript : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             TransportInfo.spawnPoint = SpawnPoint;
-            Application.LoadLevel(LevelName);
+            TransportInfo.levelName = LevelName;
+            Application.LoadLevel("Loading");
         }
     }
 }

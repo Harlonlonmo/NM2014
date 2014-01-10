@@ -28540,7 +28540,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5f5dcf951f8cee54aa195b4839cd1794, type: 2}
       propertyPath: LevelName
-      value: ControllRoom
+      value: ControlRoom
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5f5dcf951f8cee54aa195b4839cd1794, type: 2}
       propertyPath: SpawnPoint
@@ -53052,7 +53052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abeac213f44f3184385213ee33c16009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: ControllRoom
+  LevelName: ControlRoom
   SpawnPoint: 2
 --- !u!65 &1739407620
 BoxCollider:

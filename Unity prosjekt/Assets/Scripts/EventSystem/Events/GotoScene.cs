@@ -7,6 +7,7 @@ public class GotoScene : Event
 
     public override void Activate()
     {
-        Application.LoadLevel(LevelName);
+        TransportInfo.levelName = LevelName;
+        Application.LoadLevel("Loading");
     }
 }

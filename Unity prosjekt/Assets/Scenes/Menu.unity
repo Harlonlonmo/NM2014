@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028336b7cfc63734bb518a578db9ede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: ControllRoom
+  LevelName: ControlRoom
 --- !u!114 &455897214
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
   - enabled: 1
+    path: Assets/Scenes/Loading.unity
+  - enabled: 1
     path: Assets/Scenes/ControlRoom.unity
   - enabled: 1
     path: Assets/Scenes/WingLeft.unity
