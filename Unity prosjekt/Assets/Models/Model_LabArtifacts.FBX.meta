@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 0386a03df72aef641aaff5c2550dab76
+=======
+guid: cc5ffce521945784ea68bae28b38fb80
+>>>>>>> kenneth3
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
