@@ -7,7 +7,8 @@ public class CrystalBlast : TemperatureEfect
     public bool BeamActive;
     public GameObject[] Beams;
     public GameObject[] ParticleSystems;
-    public GameObject[] ToMelt; 
+    public GameObject[] ToMelt;
+    public float TargetLightOffset; 
 
     public LoopingSound Sound;
 
@@ -79,7 +80,7 @@ public class CrystalBlast : TemperatureEfect
             receiver.transform.position = TargetTransform.position;
         }
 
-        ImpactLight.transform.position = TargetTransform.position;
+        ImpactLight.transform.position = TargetTransform.position; 
     }
 
     public override void Deactivate()
