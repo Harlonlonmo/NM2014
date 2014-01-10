@@ -21,7 +21,8 @@ public class CrystalBlast : TemperatureEfect
     public float DefreezeSpeed = 0.08f;
     public float LifeTimeActivated = 3;
     public GameObject HeatEffectLight;
-    public float DeHeatSpeed = 10; 
+    public float DeHeatSpeed = 10;
+    public GameObject ActiveWaterFall; 
 
     public GameObject MuzzleLight;
     public GameObject ImpactLight;
@@ -85,7 +86,8 @@ public class CrystalBlast : TemperatureEfect
             {
                 case Action.ToFreese: obj.SetActive(true);
                     _frost.FrostAmount = 1;
-                    _frostEnabled = true; 
+                    _frostEnabled = true;
+                    ActiveWaterFall.SetActive(false);
                     break;
                 case Action.ToMelt: obj.SetActive(false);
                     HeatEffectLight.SetActive(true);
@@ -132,10 +134,15 @@ public class CrystalBlast : TemperatureEfect
         {
             if (_heatEffectLight.intensity > 0)
             {
-                _heatEffectLight.intensity -= Time.deltaTime*DeHeatSpeed;
+                _heatEffectLight.intensity = Time.deltaTime*DeHeatSpeed * 100;
                 _heatEffectFlare.brightness -= Time.deltaTime*DeHeatSpeed;
             }
-            else _heatEnabled = false; 
+            else
+            {
+                Debug.Log("Turn off");
+                HeatEffectLight.SetActive(false);
+                _heatEnabled = false;
+            }
         }
 
 
