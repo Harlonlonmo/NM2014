@@ -2,15 +2,20 @@
 using System.Linq;
 using UnityEngine;
 
+public enum Action
+{
+    ToFreese, 
+    ToMelt
+}
+
 public class CrystalBlast : TemperatureEfect
 {
     public bool BeamActive;
     public GameObject[] Beams;
     public GameObject[] ParticleSystems;
-    public GameObject[] ToMelt;
-    public float TargetLightOffset; 
-
+    public GameObject[] ToAffect;
     public LoopingSound Sound;
+    public Action action; 
 
     public GameObject MuzzleLight;
     public GameObject ImpactLight;
@@ -52,9 +57,15 @@ public class CrystalBlast : TemperatureEfect
             pSystem.enableEmission = true;
         }
 
-        foreach (GameObject meltable in ToMelt)
+        foreach (GameObject obj in ToAffect)
         {
-            meltable.SetActive(false);
+            switch (action)
+            {
+                case Action.ToFreese: obj.SetActive(true);
+                    break;
+                case Action.ToMelt: obj.SetActive(false);
+                    break; 
+            }
         }
 
 
