@@ -9,6 +9,7 @@ public class Sprint : MonoBehaviour
 
     public float SprintSpeed;
     private float DefaultMoveSpeed;
+    private bool _superSpeed; 
 
 	// Use this for initialization
 	void Start ()
@@ -20,9 +21,11 @@ public class Sprint : MonoBehaviour
 	// Update is called once per frame
     private void Update()
     {
+        if (Input.GetMouseButton(2)) _superSpeed = !_superSpeed; 
         if (Input.GetButton("Sprint"))
         {
-            motor.movement.maxForwardSpeed = SprintSpeed;
+            if (_superSpeed) motor.movement.maxForwardSpeed = SprintSpeed * 2;
+            else motor.movement.maxForwardSpeed = SprintSpeed;
         }
         else
         {

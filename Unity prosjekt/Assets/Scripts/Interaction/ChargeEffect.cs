@@ -11,7 +11,11 @@ public class ChargeEffect : MonoBehaviour
 
     void Start()
     {
-        lastTemp = TempHandler.temperature; 
+        lastTemp = TempHandler.temperature;
+        foreach (ParticleSystem system in ParticleSystems)
+        {
+            system.enableEmission = false;
+        } 
     }
 
     public void Activate()

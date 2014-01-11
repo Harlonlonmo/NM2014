@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SimpleDoorScript : MonoBehaviour {
+public class SimpleDoorScript : MonoBehaviour
+{
 
     public Transform leftDoor;
     public Transform rightDoor;
@@ -9,34 +10,53 @@ public class SimpleDoorScript : MonoBehaviour {
     public float openSpeed = 1f;
     public float openLength = 1f;
 
-    public bool isForwardBased = true;
+    private bool _open, _close;
+    private Vector3 originalPosLeft, originalPosRight;
+
+    float keyFrame = 0;  
+
+    void Start()
+    {
+        originalPosRight = rightDoor.transform.position;
+        originalPosLeft = leftDoor.transform.position; 
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (isForwardBased)
-        {
-            leftDoor.position = Vector3.Lerp(leftDoor.position, leftDoor.position + (-Vector3.forward * openLength), Time.time * openSpeed);
-            rightDoor.position = Vector3.Lerp(rightDoor.position, rightDoor.position + (Vector3.forward * openLength), Time.time * openSpeed);
-        }
-        else
-        {
-            leftDoor.position = Vector3.Lerp(leftDoor.position, leftDoor.position + (Vector3.right * openLength), Time.time * openSpeed);
-            rightDoor.position = Vector3.Lerp(rightDoor.position, rightDoor.position + (-Vector3.right * openLength), Time.time * openSpeed);
-        }
+        _open = true;
+        _close = false;
+        keyFrame = 0;
+    }
 
+    void Update()
+    {
+        if (_open)
+        {
+            leftDoor.position = Vector3.Lerp(originalPosLeft, originalPosLeft + (transform.right * openLength), (keyFrame += Time.deltaTime * openSpeed));
+            rightDoor.position = Vector3.Lerp(originalPosRight, originalPosRight + (-transform.right * openLength), (keyFrame += Time.deltaTime * openSpeed));
+            if (leftDoor.transform.position == originalPosLeft + (transform.right * openLength))
+            {
+                keyFrame = 0f;
+                _open = false; 
+            } 
+        }
+       else if (_close)
+        {
+            leftDoor.position = Vector3.Lerp(originalPosLeft + (transform.right * openLength), originalPosLeft, (keyFrame += Time.deltaTime * openSpeed));
+            rightDoor.position = Vector3.Lerp(originalPosRight + (-transform.right * openLength), originalPosRight, (keyFrame += Time.deltaTime * openSpeed));
+            if (leftDoor.transform.position == originalPosLeft)
+            {
+                keyFrame = 0f;
+                _close = false; 
+            }
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (isForwardBased)
-        {
-            leftDoor.position = Vector3.Lerp(leftDoor.position, leftDoor.position + (Vector3.forward * openLength), Time.time * openSpeed);
-            rightDoor.position = Vector3.Lerp(rightDoor.position, rightDoor.position + (-Vector3.forward * openLength), Time.time * openSpeed);
-        }
-        else
-        {
-            leftDoor.position = Vector3.Lerp(leftDoor.position, leftDoor.position + (-Vector3.right * openLength), Time.time * openSpeed);
-            rightDoor.position = Vector3.Lerp(rightDoor.position, rightDoor.position + (Vector3.right * openLength), Time.time * openSpeed);
-        }
+        _open = false;
+        _close = true;
+        keyFrame = 0; 
     }
 }

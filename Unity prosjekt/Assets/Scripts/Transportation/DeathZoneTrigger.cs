@@ -9,7 +9,7 @@ public class DeathZoneTrigger : MonoBehaviour {
     }
 
 	private IEnumerator load(){
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(1);
 		Application.LoadLevel(Application.loadedLevel);
 	}
 }
