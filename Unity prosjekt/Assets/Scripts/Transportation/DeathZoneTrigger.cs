@@ -5,6 +5,11 @@ public class DeathZoneTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Application.LoadLevel(Application.loadedLevel);
+		StartCoroutine(load());
     }
+
+	private IEnumerator load(){
+		yield return new WaitForSeconds(3);
+		Application.LoadLevel(Application.loadedLevel);
+	}
 }
